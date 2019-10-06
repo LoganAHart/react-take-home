@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import { Switch, Route } from "react-router-dom";
 
 import OfferFeed from "containers/OfferFeed/Loadable";
+import NotFoundPage from "containers/NotFoundPage/Loadable";
 
 import GlobalStyle from "global-styles";
 
@@ -26,6 +27,7 @@ export default function App() {
       </Helmet>
       <Switch>
         <Route exact path="/" component={OfferFeed} />
+        <Route path="" component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
     </AppWrapper>
