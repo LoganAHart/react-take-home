@@ -1,6 +1,9 @@
 import React from "react";
 import { Helmet } from "react-helmet";
 import styled from "styled-components/macro";
+import { Switch, Route } from "react-router-dom";
+
+import OfferFeed from "containers/OfferFeed/Loadable";
 
 import GlobalStyle from "global-styles";
 
@@ -21,7 +24,9 @@ export default function App() {
       >
         <meta name="description" content="Logan Hart's Submission" />
       </Helmet>
-      <div>Test Render</div>
+      <Switch>
+        <Route exact path="/" component={OfferFeed} />
+      </Switch>
       <GlobalStyle />
     </AppWrapper>
   );
