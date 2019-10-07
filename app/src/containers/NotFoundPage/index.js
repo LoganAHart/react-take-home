@@ -3,7 +3,11 @@ import styled from "styled-components";
 import H1 from "components/H1";
 
 const NotFoundWrapper = styled.section`
-  padding: 4em;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  padding-top: 3.2em;
 `;
 
 const NotFoundH1 = styled(H1)`

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
+import styled from "styled-components/macro";
 
 import { useInjectSaga } from "utils/injectSaga";
 import { useInjectReducer } from "utils/injectReducer";
@@ -13,18 +14,22 @@ import saga from "./saga";
 
 const key = "offerFeed";
 
+const OfferFeedWrapper = styled.div`
+  padding-top: 3.2em;
+`;
+
 export function OfferFeed() {
   useInjectReducer({ key, reducer });
   useInjectSaga({ key, saga });
 
   return (
-    <div>
+    <OfferFeedWrapper>
       <Helmet>
         <title>OfferFeed</title>
         <meta name="description" content="Description of OfferFeed" />
       </Helmet>
       <div>Test Render: OfferFeed</div>
-    </div>
+    </OfferFeedWrapper>
   );
 }
 

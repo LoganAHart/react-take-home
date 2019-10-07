@@ -32,11 +32,11 @@ function PlugLogo(props) {
           y1="13.999%"
           y2="88.65%"
         >
-          <stop offset="0%" stop-color="#2AFF38" />
-          <stop offset="100%" stop-color="#00DE49" />
+          <stop offset="0%" stopColor="#2AFF38" />
+          <stop offset="100%" stopColor="#00DE49" />
         </linearGradient>
       </defs>
-      <g fill="none" fill-rule="evenodd">
+      <g fill="none" fillRule="evenodd">
         <circle cx="19" cy="19" r="19" fill="url(#logo-a)" />
         <path
           fill="#FFF"
