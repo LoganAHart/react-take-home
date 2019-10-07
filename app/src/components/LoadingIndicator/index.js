@@ -1,5 +1,4 @@
 import React from "react";
-import styled from "styled-components/macro";
 
 import Circle from "./Circle";
 import Wrapper from "./Wrapper";

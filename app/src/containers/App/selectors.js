@@ -38,7 +38,7 @@ const makeSelectError = () =>
 /**
  * Selector for the `campaigns` on the `feedData` state domain
  *
- * @return empty array | array of campaign objects
+ * @return false boolean | array of campaign objects
  */
 const makeSelectCampaigns = () =>
   createSelector(

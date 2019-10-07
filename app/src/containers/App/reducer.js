@@ -9,7 +9,7 @@ export const initialState = {
   loading: false,
   error: false,
   feedData: {
-    campaigns: []
+    campaigns: false
   }
 };
 
@@ -20,6 +20,7 @@ const appReducer = (state = initialState, action) =>
       case LOAD_CAMPAIGNS:
         draft.loading = true;
         draft.error = false;
+        draft.feedData.campaigns = false;
         break;
       case LOAD_CAMPAIGNS_SUCCESS:
         draft.loading = false;
