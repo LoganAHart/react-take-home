@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
  *
  * @param {MenuIconProps} props
  *
- * @returns `MenuIcon` component
+ * @return `MenuIcon` component
  */
 export function MenuIcon(props) {
   return (

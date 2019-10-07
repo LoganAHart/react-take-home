@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
  *
  * @param {PlayIconProps} props
  *
- * @returns `PlayIcon` component
+ * @return `PlayIcon` component
  */
 export function PlayIcon(props) {
   return (

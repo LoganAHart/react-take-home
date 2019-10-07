@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
  *
  * @param {LinkIconProps} props
  *
- * @returns `LinkIcon` component
+ * @return `LinkIcon` component
  */
 export function LinkIcon(props) {
   return (

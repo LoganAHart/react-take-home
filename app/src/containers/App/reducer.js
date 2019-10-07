@@ -1,15 +1,35 @@
 import produce from "immer";
-import { DEFAULT_ACTION } from "./constants";
+import {
+  LOAD_CAMPAIGNS,
+  LOAD_CAMPAIGNS_SUCCESS,
+  LOAD_CAMPAIGNS_ERROR
+} from "./constants";
 
-export const initialState = {};
+export const initialState = {
+  loading: false,
+  error: false,
+  feedData: {
+    campaigns: []
+  }
+};
 
 /* eslint-disable default-case, no-param-reassign */
-const AppReducer = (state = initialState, action) =>
-  produce(state, (/* draft */) => {
+const appReducer = (state = initialState, action) =>
+  produce(state, draft => {
     switch (action.type) {
-      case DEFAULT_ACTION:
+      case LOAD_CAMPAIGNS:
+        draft.loading = true;
+        draft.error = false;
+        break;
+      case LOAD_CAMPAIGNS_SUCCESS:
+        draft.loading = false;
+        draft.feedData.campaigns = action.campaigns;
+        break;
+      case LOAD_CAMPAIGNS_ERROR:
+        draft.loading = false;
+        draft.error = action.error;
         break;
     }
   });
 
-export default AppReducer;
+export default appReducer;

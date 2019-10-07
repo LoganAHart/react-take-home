@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
  *
  * @param {PlugLogoProps} props
  *
- * @returns `PlugLogo` component
+ * @return `PlugLogo` component
  */
 function PlugLogo(props) {
   return (

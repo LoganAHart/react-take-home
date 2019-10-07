@@ -13,7 +13,7 @@ import PropTypes from "prop-types";
  *
  * @param {DownloadIconProps} props
  *
- * @returns `DownloadIcon` component
+ * @return `DownloadIcon` component
  */
 export function DownloadIcon(props) {
   return (
