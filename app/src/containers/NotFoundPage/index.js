@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import H1 from "components/H1";
 
-const NotFoundWrapper = styled.section`
+const NotFoundWrapper = styled.div`
   display: flex;
   flex: 1;
+  width: 100%;
   justify-content: center;
   align-items: center;
   padding-top: 3.2em;

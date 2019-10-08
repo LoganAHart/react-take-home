@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 
 import OfferFeed from "containers/OfferFeed/Loadable";
 import NotFoundPage from "containers/NotFoundPage/Loadable";
+import ErrorPage from "containers/ErrorPage/Loadable";
 import NavHeader from "components/NavHeader";
 
 import GlobalStyle from "global-styles";
@@ -27,6 +28,7 @@ export default function App() {
       <NavHeader />
       <Switch>
         <Route exact path="/" component={OfferFeed} />
+        <Route exact path="/error" component={ErrorPage} />
         <Route path="" component={NotFoundPage} />
       </Switch>
       <GlobalStyle />
