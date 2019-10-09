@@ -6,16 +6,7 @@ import { compose } from "redux";
 
 import CampaignHeader from "./CampaignHeader";
 import HorizontalList from "./HorizontalList";
-import HorizontalListItem from "./HorizontalListItem";
-import MediaWrapper from "./MediaWrapper";
-import {
-  LinkMediaButton,
-  DownloadMediaButton,
-  MediaButtonsWrapper
-} from "./MediaButtons";
-import DownloadIcon from "components/DownloadIcon";
-import LinkIcon from "components/LinkIcon";
-import PlayIcon from "components/PlayIcon";
+import MediaCard from "./LoadableMedia";
 
 const CampaignCardWrapper = styled.div`
   display: flex;
@@ -39,17 +30,10 @@ export function CampaignCard({ campaign, id }) {
     <CampaignCardWrapper>
       <CampaignHeader {...campaignHeaderProps} />
       <HorizontalList>
-        <HorizontalListItem>
-          <MediaWrapper />
-          <MediaButtonsWrapper>
-            <LinkMediaButton name="Link Media Button">
-              <LinkIcon width="2em" height="2em" />
-            </LinkMediaButton>
-            <DownloadMediaButton name="Download Media Button">
-              <DownloadIcon width="2em" height="2em" />
-            </DownloadMediaButton>
-          </MediaButtonsWrapper>
-        </HorizontalListItem>
+        <MediaCard />
+        <MediaCard />
+        <MediaCard />
+        <MediaCard />
       </HorizontalList>
     </CampaignCardWrapper>
   );

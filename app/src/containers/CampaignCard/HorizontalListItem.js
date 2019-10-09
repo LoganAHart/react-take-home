@@ -5,9 +5,9 @@ const HorizontalListItem = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 14.57em;
-  width: 8.2em;
-  margin: 1em 0.5em;
+  height: 14.6em;
+  width: 7.3em;
+  margin: 1em 0;
 `;
 
 export default HorizontalListItem;
