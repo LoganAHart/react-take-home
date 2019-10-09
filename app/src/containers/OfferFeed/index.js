@@ -5,7 +5,6 @@ import { Helmet } from "react-helmet";
 import { createStructuredSelector } from "reselect";
 import { compose } from "redux";
 import styled from "styled-components/macro";
-import { Link } from "react-router-dom";
 
 import { useInjectSaga } from "utils/injectSaga";
 import { useInjectReducer } from "utils/injectReducer";
@@ -14,6 +13,7 @@ import {
   makeSelectLoading,
   makeSelectError
 } from "containers/App/selectors";
+import CampaignCard from "containers/CampaignCard/Loadable";
 import { loadCampaigns } from "containers/App/actions";
 import makeSelectOfferFeed from "./selectors";
 import reducer from "./reducer";
@@ -45,7 +45,10 @@ export function OfferFeed({
         <title>OfferFeed</title>
         <meta name="description" content="Description of OfferFeed" />
       </Helmet>
-      <div>Test Render: OfferFeed</div>
+      {campaigns &&
+        Object.keys(campaigns).map(key => {
+          return <CampaignCard id={key} key={key} />;
+        })}
     </OfferFeedWrapper>
   );
 }
@@ -53,7 +56,7 @@ export function OfferFeed({
 OfferFeed.propTypes = {
   loading: PropTypes.bool,
   error: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
-  campaigns: PropTypes.oneOfType([PropTypes.bool, PropTypes.array]),
+  campaigns: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]),
   onRequestLoadCampaigns: PropTypes.func.isRequired
 };
 

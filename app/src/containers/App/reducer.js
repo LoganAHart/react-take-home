@@ -1,4 +1,5 @@
 import produce from "immer";
+import { keyBy } from "lodash";
 import {
   LOAD_CAMPAIGNS,
   LOAD_CAMPAIGNS_SUCCESS,
@@ -24,7 +25,10 @@ const appReducer = (state = initialState, action) =>
         break;
       case LOAD_CAMPAIGNS_SUCCESS:
         draft.loading = false;
-        draft.feedData.campaigns = action.campaigns;
+        draft.feedData.campaigns = keyBy(
+          action.campaigns,
+          campaign => campaign.id
+        );
         break;
       case LOAD_CAMPAIGNS_ERROR:
         draft.loading = false;
