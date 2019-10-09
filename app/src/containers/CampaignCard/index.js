@@ -3,11 +3,20 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { compose } from "redux";
 
-export function CampaignCard(props) {
+import CampaignHeader from "./CampaignHeader";
+
+export function CampaignCard({ campaign, id }) {
   useEffect(() => {
-    console.log(props);
-  }, [props]);
-  return <div>Test Render: CampaignCard</div>;
+    console.log(campaign);
+  }, [campaign]);
+
+  const campaignHeaderProps = {
+    campaignName: campaign.campaign_name,
+    campaignIconUrl: campaign.campaign_icon_url,
+    payPerInstall: campaign.pay_per_install
+  };
+
+  return <CampaignHeader {...campaignHeaderProps} />;
 }
 
 CampaignCard.propTypes = {

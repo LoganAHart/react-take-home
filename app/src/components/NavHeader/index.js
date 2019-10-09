@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 import MenuIcon from "components/MenuIcon";
 import PlugLogoIcon from "components/PlugLogoIcon";
