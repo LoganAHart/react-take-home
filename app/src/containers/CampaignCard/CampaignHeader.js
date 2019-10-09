@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 
 import IconImg from "./IconImg";
+import CampaignInfo from "./CampaignInfo";
 
 const IconImgWrapper = styled.div`
   height: 4em;
@@ -21,20 +22,13 @@ const CampaignHeaderWrapper = styled.div`
   padding: 0.2em 1em 0.2em 1em;
 `;
 
-function CampaignHeader(props) {
+function CampaignHeader({ campaignName, campaignIconUrl, payPerInstall }) {
   return (
     <CampaignHeaderWrapper>
       <IconImgWrapper>
-        <IconImg
-          src={props.campaignIconUrl}
-          alt={`${props.campaignName} icon`}
-        />
+        <IconImg src={campaignIconUrl} alt={`${campaignName} icon`} />
       </IconImgWrapper>
-      <div>
-        {props.campaignName}
-        <br />
-        {props.payPerInstall}
-      </div>
+      <CampaignInfo campaignName={campaignName} payPerInstall={payPerInstall} />
     </CampaignHeaderWrapper>
   );
 }
