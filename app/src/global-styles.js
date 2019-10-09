@@ -4,19 +4,18 @@ const GlobalStyle = createGlobalStyle`
   html,
   body {
     height: 100%;
-    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
     line-height: 1.5;
     margin: 0;
-  }
-
-  body {
-    font-family: 'San Francisco', -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, sans-serif;
   }
 
   #root {
     background-color: #ffffff;
     min-height: 100%;
     min-width: 100%;
+    box-sizing: border-box;
   }
 
   p,

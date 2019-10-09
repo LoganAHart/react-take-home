@@ -6,18 +6,21 @@ import { compose } from "redux";
 
 import CampaignHeader from "./CampaignHeader";
 import HorizontalList from "./HorizontalList";
+import HorizontalListItem from "./HorizontalListItem";
+import MediaWrapper from "./MediaWrapper";
+import {
+  LinkMediaButton,
+  DownloadMediaButton,
+  MediaButtonsWrapper
+} from "./MediaButtons";
+import DownloadIcon from "components/DownloadIcon";
+import LinkIcon from "components/LinkIcon";
+import PlayIcon from "components/PlayIcon";
 
 const CampaignCardWrapper = styled.div`
   display: flex;
+  max-width: 100%;
   flex-direction: column;
-`;
-
-const TestDiv = styled.div`
-  flex: 0 0 auto;
-  height: 10em;
-  width: 5em;
-  margin: 1em;
-  background-color: red;
 `;
 
 export function CampaignCard({ campaign, id }) {
@@ -31,16 +34,22 @@ export function CampaignCard({ campaign, id }) {
     payPerInstall: campaign.pay_per_install
   };
 
+  // Note: add margin right
   return (
     <CampaignCardWrapper>
       <CampaignHeader {...campaignHeaderProps} />
       <HorizontalList>
-        <TestDiv />
-        <TestDiv />
-        <TestDiv />
-        <TestDiv />
-        <TestDiv />
-        <TestDiv />
+        <HorizontalListItem>
+          <MediaWrapper />
+          <MediaButtonsWrapper>
+            <LinkMediaButton name="Link Media Button">
+              <LinkIcon width="2em" height="2em" />
+            </LinkMediaButton>
+            <DownloadMediaButton name="Download Media Button">
+              <DownloadIcon width="2em" height="2em" />
+            </DownloadMediaButton>
+          </MediaButtonsWrapper>
+        </HorizontalListItem>
       </HorizontalList>
     </CampaignCardWrapper>
   );
