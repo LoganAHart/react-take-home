@@ -18,7 +18,6 @@ const CampaignHeaderWrapper = styled.div`
   width: 100%;
   height: 6em;
   background: #ffffff;
-  box-shadow: 0 1px 0 0 #eaeaea;
   padding: 0.2em 1em 0.2em 1em;
 `;
 
