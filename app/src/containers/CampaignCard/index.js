@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 import { connect } from "react-redux";
 import { compose } from "redux";
+import uuidv1 from "uuid/v1";
 
 import CampaignHeader from "./CampaignHeader";
 import HorizontalList from "./HorizontalList";
@@ -12,6 +13,13 @@ const CampaignCardWrapper = styled.div`
   display: flex;
   max-width: 100%;
   flex-direction: column;
+`;
+
+const HorizontalListPadEnd = styled.div`
+  flex: 0 0 auto;
+  height: 14.6em;
+  width: 1em;
+  margin: 1em 0;
 `;
 
 export function CampaignCard({ campaign, id }) {
@@ -25,15 +33,23 @@ export function CampaignCard({ campaign, id }) {
     payPerInstall: campaign.pay_per_install
   };
 
-  // Note: add margin right
   return (
     <CampaignCardWrapper>
       <CampaignHeader {...campaignHeaderProps} />
       <HorizontalList>
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
-        <MediaCard />
+        {campaign.medias &&
+          campaign.medias.map((media, idx) => {
+            const mediaProps = {
+              coverPhotoURL: media.cover_photo_url,
+              downloadURL: media.download_url,
+              mediaType: media.media_type,
+              trackingLink: media.tracking_link,
+              campaignName: campaign.campaign_name,
+              campaignID: campaign.id
+            };
+            return <MediaCard key={uuidv1()} {...mediaProps} />;
+          })}
+        <HorizontalListPadEnd />
       </HorizontalList>
     </CampaignCardWrapper>
   );

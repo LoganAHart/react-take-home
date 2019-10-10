@@ -1,6 +1,6 @@
-import styled from "styled-components/macro";
+import styled, { css } from "styled-components/macro";
 
-const MediaWrapper = styled.div`
+const mediaWrapperStyle = css`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,7 +8,16 @@ const MediaWrapper = styled.div`
   height: 11.36em;
   margin: 0 auto;
   border-radius: 0.4em;
-  background-color: grey;
 `;
 
-export default MediaWrapper;
+const MediaWrapper = styled.div`
+  ${mediaWrapperStyle}
+  background-color: rgba(255, 255, 255, 0.75);
+`;
+
+const PlaceholderMediaWrapper = styled.div`
+  ${mediaWrapperStyle}
+  background-color: rgba(128, 128, 128, 0.75);
+`;
+
+export { MediaWrapper, PlaceholderMediaWrapper };
