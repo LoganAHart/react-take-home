@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
 import copy from "clipboard-copy";
 
 import HorizontalListItem from "./HorizontalListItem";
 import { MediaWrapper, PlaceholderMediaWrapper } from "./MediaWrapper";
+import VideoPlayer from "./VideoPlayer";
 import {
   LinkMediaButton,
   DownloadMediaLink,
@@ -21,6 +22,18 @@ const CoverPhoto = styled(Img)`
   object-fit: contain;
   border-radius: 0.4em;
   overflow: hidden;
+  filter: blur(4px) brightness(0.5);
+`;
+
+const PlayVideoIcon = styled(PlayIcon)`
+  flex: 0 0 auto;
+  position: absolute;
+  width: 1.5em;
+  height: 1.5em;
+  top: calc(50% - (1.5em / 2));
+  left: calc(50% - (1.5em / 2));
+  z-index: 2;
+  opacity: ${props => (props.startedPlaying ? 0 : 1)};
 `;
 
 export function MediaCard({
@@ -28,16 +41,41 @@ export function MediaCard({
   downloadURL,
   mediaType,
   trackingLink,
-  campaignName,
-  campaignID
+  campaignName
 }) {
+  const [startedPlaying, setStartedPlaying] = useState(false);
+
+  const videoRef = useRef(null);
+
   const copyToClipboard = () => {
     copy(trackingLink);
   };
+
+  const handleVideoClick = () => {
+    videoRef.current.play();
+  };
+
   return (
     <HorizontalListItem>
       <MediaWrapper>
-        <CoverPhoto src={coverPhotoURL} alt={`${campaignName} Cover Photo`} />
+        {mediaType === "video" ? (
+          <VideoPlayer
+            videoRef={videoRef}
+            setStartedPlaying={setStartedPlaying}
+            downloadURL={downloadURL}
+            coverPhotoURL={coverPhotoURL}
+          />
+        ) : (
+          <CoverPhoto src={coverPhotoURL} alt={`${campaignName} Cover Photo`} />
+        )}
+        {mediaType === "video" ? (
+          <PlayVideoIcon
+            width="3em"
+            height="3em"
+            startedPlaying={startedPlaying}
+            handleClick={() => handleVideoClick()}
+          />
+        ) : null}
       </MediaWrapper>
       <MediaButtonsWrapper>
         <LinkMediaButton
@@ -76,5 +114,13 @@ const PlaceHolderMediaCard = props => {
   );
 };
 
+MediaCard.propTypes = {
+  coverPhotoURL: PropTypes.string.isRequired,
+  downloadURL: PropTypes.string.isRequired,
+  mediaType: PropTypes.string.isRequired,
+  trackingLink: PropTypes.string.isRequired,
+  campaignName: PropTypes.string.isRequired
+};
+
 export default MediaCard;
-export { PlaceHolderMediaCard };
+export { PlaceHolderMediaCard, CoverPhoto };

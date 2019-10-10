@@ -23,10 +23,6 @@ const HorizontalListPadEnd = styled.div`
 `;
 
 export function CampaignCard({ campaign, id }) {
-  useEffect(() => {
-    console.log(campaign);
-  }, [campaign]);
-
   const campaignHeaderProps = {
     campaignName: campaign.campaign_name,
     campaignIconUrl: campaign.campaign_icon_url,

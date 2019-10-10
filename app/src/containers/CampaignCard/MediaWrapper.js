@@ -8,6 +8,7 @@ const mediaWrapperStyle = css`
   height: 11.36em;
   margin: 0 auto;
   border-radius: 0.4em;
+  position: relative;
 `;
 
 const MediaWrapper = styled.div`

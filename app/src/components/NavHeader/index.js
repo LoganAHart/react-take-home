@@ -16,7 +16,7 @@ const NavHeaderWrapper = styled.div`
   background: #ffffff;
   box-shadow: 0 1px 0 0 #eaeaea;
   padding: 0.2em 1em 0.2em 1em;
-  z-index: 2;
+  z-index: 3;
 `;
 
 const CenteredPlugIcon = styled(PlugLogoIcon)`

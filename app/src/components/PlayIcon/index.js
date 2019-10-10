@@ -23,6 +23,7 @@ export function PlayIcon(props) {
       width={props.width}
       height={props.height}
       viewBox="0 0 23 25"
+      onClick={props.handleClick}
     >
       <path
         fill="#FFF"
@@ -35,6 +36,7 @@ export function PlayIcon(props) {
 
 PlayIcon.propTypes = {
   className: PropTypes.string,
+  handleClick: PropTypes.func,
   width: PropTypes.string.isRequired,
   height: PropTypes.string.isRequired
 };
