@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components/macro";
+import copy from "clipboard-copy";
 
 import HorizontalListItem from "./HorizontalListItem";
 import { MediaWrapper, PlaceholderMediaWrapper } from "./MediaWrapper";
 import {
   LinkMediaButton,
-  DownloadMediaButton,
+  DownloadMediaLink,
   MediaButtonsWrapper
 } from "./MediaButtons";
 import DownloadIcon from "components/DownloadIcon";
@@ -30,18 +31,30 @@ export function MediaCard({
   campaignName,
   campaignID
 }) {
+  const copyToClipboard = () => {
+    copy(trackingLink);
+  };
   return (
     <HorizontalListItem>
       <MediaWrapper>
         <CoverPhoto src={coverPhotoURL} alt={`${campaignName} Cover Photo`} />
       </MediaWrapper>
       <MediaButtonsWrapper>
-        <LinkMediaButton name="Link Media Button">
+        <LinkMediaButton
+          onClick={copyToClipboard}
+          value={trackingLink}
+          name="Copy Tracking Link Button"
+        >
           <LinkIcon width="2em" height="2em" />
         </LinkMediaButton>
-        <DownloadMediaButton name="Download Media Button">
+        <DownloadMediaLink
+          as="a"
+          href={downloadURL}
+          alt={`Download ${campaignName} ${mediaType}`}
+          download
+        >
           <DownloadIcon width="2em" height="2em" />
-        </DownloadMediaButton>
+        </DownloadMediaLink>
       </MediaButtonsWrapper>
     </HorizontalListItem>
   );
@@ -55,9 +68,9 @@ const PlaceHolderMediaCard = props => {
         <LinkMediaButton name="Link Media Button">
           <LinkIcon width="2em" height="2em" />
         </LinkMediaButton>
-        <DownloadMediaButton name="Download Media Button">
+        <DownloadMediaLink name="Download Media Button">
           <DownloadIcon width="2em" height="2em" />
-        </DownloadMediaButton>
+        </DownloadMediaLink>
       </MediaButtonsWrapper>
     </HorizontalListItem>
   );

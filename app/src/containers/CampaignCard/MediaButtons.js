@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components/macro";
+import A from "./A";
 
 const mediaButtonStyles = css`
   width: 4.2em;
@@ -25,8 +26,11 @@ const LinkMediaButton = styled.button`
   margin-right: -1px;
 `;
 
-const DownloadMediaButton = styled.button`
+const DownloadMediaLink = styled(A)`
   ${mediaButtonStyles}
+  font: 400 11px system-ui;
+  text-align: center;
+  padding-top: 0.9em;
   background-color: #ffffff;
   border: 1px solid rgba(224, 238, 242, 1);
   border-radius: 0 0.5em 0.5em 0;
@@ -41,4 +45,4 @@ const MediaButtonsWrapper = styled.div`
   margin-top: 0.35em;
 `;
 
-export { LinkMediaButton, DownloadMediaButton, MediaButtonsWrapper };
+export { LinkMediaButton, DownloadMediaLink, MediaButtonsWrapper };

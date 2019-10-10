@@ -38,7 +38,7 @@ export function CampaignCard({ campaign, id }) {
       <CampaignHeader {...campaignHeaderProps} />
       <HorizontalList>
         {campaign.medias &&
-          campaign.medias.map((media, idx) => {
+          campaign.medias.map(media => {
             const mediaProps = {
               coverPhotoURL: media.cover_photo_url,
               downloadURL: media.download_url,

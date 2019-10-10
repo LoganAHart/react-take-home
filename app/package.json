@@ -8,6 +8,7 @@
     "url": "https://github.com/LoganAHart/react-take-home.git"
   },
   "dependencies": {
+    "clipboard-copy": "^3.1.0",
     "connected-react-router": "^6.5.2",
     "history": "^4.10.1",
     "hoist-non-react-statics": "^3.3.0",
