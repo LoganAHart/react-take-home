@@ -22,7 +22,6 @@ const CoverPhoto = styled(Img)`
   object-fit: contain;
   border-radius: 0.4em;
   overflow: hidden;
-  filter: blur(4px) brightness(0.5);
 `;
 
 const PlayVideoIcon = styled(PlayIcon)`
